@@ -43,6 +43,7 @@
   }
   
   header {
+    display: block;
     padding: 40px;
     text-align: center;
     background: #13293d;
@@ -56,22 +57,26 @@
     justify-content: space-around;
   }
   
-  section {
+  .questions {
     flex: 0 auto;
     padding: 8px;
     margin-top: 50px;
     background-color: white;
     border-radius: 8px;
-  }
-  
-  .questions {
     width: 55vw;
     height: 400px;
+    display: none;
   }
   
   .results {
+    flex: 0 auto;
+    padding: 8px;
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 8px;
     width: 30vw;
     height: 400px;
+    display: none;
   }
   
   .card {
@@ -82,10 +87,6 @@
       rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
     margin: auto;
     padding: 20px;
-  }
-  
-  .word-blanks {
-    line-height: 360px;
   }
   
   .large-font {

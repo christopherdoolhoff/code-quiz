@@ -30,11 +30,19 @@ var timerCount;
 
 // The startGame function is called when the start button is clicked
 function startGame() {
-    timerCount = 75;
+    timerCount = 10;
     // Prevents start button from being clicked when round is in progress
-    startButton.disabled = true;
+    document.querySelector("header").style.display = "none";
+    document.querySelector(".questions").style.display = "block";
+    document.querySelector(".results").style.display = "block";
     // renderBlanks()
     startTimer()
+  }
+  function endGame() {
+    wordBlank.textContent = "YOU WON!!!🏆 ";
+    winCounter++
+    startButton.disabled = false;
+    setWins()
   }
 
 // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
@@ -43,19 +51,23 @@ function startTimer() {
     timer = setInterval(function() {
       timerCount--;
       timerElement.textContent = timerCount;
-      if (timerCount >= 0) {
-        // Tests if win condition is met
-        if (isWin && timerCount > 0) {
-          // Clears interval and stops timer
-          clearInterval(timer);
-          winGame();
-        }
-      }
+      // if (timerCount >= 0) {
+      //   // Tests if win condition is met
+      //   if (isWin && timerCount > 0) {
+      //     // Clears interval and stops timer
+      //     clearInterval(timer);
+      //     endGame();
+      //   }
+      // }
       // Tests if time has run out
       if (timerCount === 0) {
+        document.querySelector("header").style.display = "block";
+        document.querySelector(".questions").style.display = "none";
+        document.querySelector(".results").style.display = "block";
         // Clears interval
         clearInterval(timer);
-        loseGame();
+        endGame();
+        timerCount = 0
       }
     }, 1000);
   }
