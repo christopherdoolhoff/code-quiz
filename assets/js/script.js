@@ -1,5 +1,29 @@
 var timerElement = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
+var correct = document.querySelector(".correct");
+var incorrect = document.querySelector(".incorrect");
+
+var questions = [
+  {
+      question: "What is the question?",
+      answer: "this is my answer"
+  },
+
+  {
+      question: "What is the question?",
+      answer: "this is my answer"
+  },
+
+  {
+      question: "What is the question?",
+      answer: "this is my answer"
+  },
+
+  {
+      question: "What is the question?",
+      answer: "this is my answer"
+  }
+];
 
 var timer;
 var timerCount;
