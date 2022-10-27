@@ -12,13 +12,6 @@
     background: linear-gradient(0deg, rgba(19,41,61,1) 0%, rgba(237,245,249,1) 63%);
   }
   
-  .reset-button {
-    font-size: 16px;
-    height: 30px;
-    line-height: 8px;
-    margin-top: 20px;
-  }
-  
   .score {
     display: flex;
     justify-content: space-between;
@@ -33,7 +26,6 @@
     font-size: 2em;
     letter-spacing: 0.21px;
     line-height: 16px;
-    max-width: 255px;
     padding: 20px 52px;
     text-align: center;
     transition-duration: 0.15s;
@@ -126,12 +118,6 @@
   @media screen and (max-width: 504px) {
     .large-font {
       font-size: 2em;
-    }
-  
-    .reset-button {
-      font-size: 12px;
-      width: 20ox;
-      
     }
   
     .timer {
