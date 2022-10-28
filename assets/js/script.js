@@ -93,8 +93,10 @@ function startGame() {
   document.querySelector("header").style.display = "none";
   document.querySelector(".questions").style.display = "block";
   document.querySelector(".results").style.display = "block";
+  document.querySelector(".savedscore").style.display = "none";
   // start timer function
   startTimer();
+  // add questions and answers to question card function
   function getQuestion(questionId){
     questionText.innerHTML = questions[questionId].question;
     aButton.innerHTML = questions[questionId].a;
@@ -105,6 +107,7 @@ function startGame() {
   console.log(parseInt(correct.innerText))
   console.log(choiceBtn)
   getQuestion(0);
+  // test if answer was correct or incorrect
     choiceBtn.forEach(btn => btn.addEventListener("click",function(event){
       if(event.target.innerHTML == questions[i].answer) {
         correct.innerText = parseInt(correct.innerText)+1;
@@ -119,10 +122,8 @@ function startGame() {
     }));
   }
 
-function endGame() {
-}
 
-// The setTimer function starts and stops the timer and triggers winGame() and loseGame()
+// The setTimer function starts and stops the timer
 function startTimer() {
   // Sets timer
   timer = setInterval(function () {
