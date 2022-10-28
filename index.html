@@ -16,21 +16,21 @@
       <section>
         <div class="card questions">
             <p ID="question">This is a question</p>
-          <button class="option-a">A:</button>
+          <button class="option-a choiceBtn">A:</button>
           <br>
-          <button class="option-b">B:</button>
+          <button class="option-b choiceBtn">B:</button>
           <br>
-          <button class="option-c">C:</button>
+          <button class="option-c choiceBtn">C:</button>
           <br>
-          <button class="option-d">D:</button>
+          <button class="option-d choiceBtn">D:</button>
         </div>
       </section>
 
       <section>
         <div class="card results">
-          <div class = "score">
           <div>
-          <h2>correct: <span class="correct">0 </span> </h2>
+          <div>
+          <h2>correct: <span class="correct">0</span> </h2>
           <h2>incorrect: <span class="incorrect">0</span></h2>
           <div class= "card timer">
             <div class = "timer-text">
@@ -38,9 +38,17 @@
             <h3>seconds remaining</h3>
           </div>
         
-          </div>
         </div>
       </section>
+      <div class="card savedscore">
+        <h1>Score</h1>
+        <form id="Name" method="POST">
+          <label for="add name">Add name for score: </label>
+          <input type="text" placeholder="Name" />
+        </form>
+        <p>Last Score <span id="lastscore">0</span></p>
+        <ul id="pastscore"></ul>
+      </div>
     </main>
     <script src="./assets/js/script.js"></script>
   </body>

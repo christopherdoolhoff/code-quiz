@@ -1,3 +1,4 @@
+// Dom Elements
 var timerElement = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
 var correct = document.querySelector(".correct");
@@ -7,7 +8,9 @@ var bButton = document.querySelector(".option-b");
 var cButton = document.querySelector(".option-c");
 var dButton = document.querySelector(".option-d");
 var questionText = document.querySelector("#question");
+var choiceBtn = document.querySelectorAll(".choiceBtn");
 
+// Questions
 var questions = [
   {
     question: "Javascript is an _______ language?",
@@ -78,34 +81,43 @@ var questions = [
   },
 ];
 
+// variables
 var timer;
 var timerCount;
+var i = 0;
 
-// The startGame function is called when the start button is clicked
+// Function to start the game
 function startGame() {
-  timerCount = 10;
-  // Prevents start button from being clicked when round is in progress
+  timerCount = 70;
+  // Hide start button and show score and questions
   document.querySelector("header").style.display = "none";
   document.querySelector(".questions").style.display = "block";
   document.querySelector(".results").style.display = "block";
-  // renderBlanks()
+  // start timer function
   startTimer();
-  for (var i = 0; i < questions.length; i++) {
-    questionText.innerHTML = questions[i].question;
-    aButton.append(questions[i].a);
-    bButton.innerHTML += questions[i].b;
-    cButton.innerHTML += questions[i].c;
-    dButton.innerHTML += questions[i].d;
-    Selection.addEventListener("click",);
-    if(Selection == questions[5]) {
-      correct++
-      i++
-    } else {
-      incorrect++
-      i++
-    }
+  function getQuestion(questionId){
+    questionText.innerHTML = questions[questionId].question;
+    aButton.innerHTML = questions[questionId].a;
+    bButton.innerHTML = questions[questionId].b;
+    cButton.innerHTML = questions[questionId].c;
+    dButton.innerHTML = questions[questionId].d;
   }
-}
+  console.log(parseInt(correct.innerText))
+  console.log(choiceBtn)
+  getQuestion(0);
+    choiceBtn.forEach(btn => btn.addEventListener("click",function(event){
+      if(event.target.innerHTML == questions[i].answer) {
+        correct.innerText = parseInt(correct.innerText)+1;
+        i++
+      } else {
+        incorrect.innerText = parseInt(incorrect.innerText)+1;
+        i++
+        // subtract time for wrong answer
+        timerCount = timerCount-10;
+      } 
+      getQuestion(i);
+    }));
+  }
 
 function endGame() {
 }
@@ -117,10 +129,11 @@ function startTimer() {
     timerCount--;
     timerElement.textContent = timerCount;
 
-    if (timerCount === 0) {
+    if (timerCount === 0 ||i > questions.length-1) {
       document.querySelector("header").style.display = "block";
       document.querySelector(".questions").style.display = "none";
       document.querySelector(".results").style.display = "block";
+      document.querySelector(".savedscore").style.display = "block";
 
       // Clears interval
       clearInterval(timer);
